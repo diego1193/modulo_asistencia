@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Cursos{% endblock %}
+{% block content %}
+
+<main role="main">
+    <div class="container mb-4">
+        <h2 class="text-center">Cursos</h2>
+        <div class="row text-center">
+            {% for curso in object_list|dictsort:"id" reversed %}
+            <div class="col-md-2 offset-md-1">
+                <h5>{{ curso.nombre_curso }}</h5>
+                <a href="{% url 'cursos:curso' curso.codigo_curso %}" class="profile-link">ver asistencias</a>
+            </div>
+            {% endfor %}
+        </div>    
+    </div>
+</main>
+{% endblock %}
